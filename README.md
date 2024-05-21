@@ -74,4 +74,9 @@ this is called namespaces
 then you can compare the process id that can you fetch and all that  using top and ps and ps aux
 and finally we can get into our namspace and restrict the limit of the memory and the cpu usage using the cgroups option.
 
+so to build a container in linux you will need 3 essential thing 
+1) Namespaces
+2) chroot
+3) Cgroups
+   
 
