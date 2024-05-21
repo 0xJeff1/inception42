@@ -48,3 +48,30 @@ what is a hypervisor ?
  but using this method is a waste of rsources since u allocate a specific amount of the memory that you might not use.
  so lets take an example of the linux and the containerization 
  
+the process in linux is being ran in one of the two sides of linux either in the user space or the kernel space.
+lets define what is a kernel first the kernel is a fundamental part of the operating system , it is a software that manage system resources and facilitates communication between hardware and software .
+the user space is any program that you run in ur device and it interact with the kernel using the API (system calls) which makes a bridge between the user space and the kernel  what the point of this is that when you use the VMs every operating system has its own kernel and user space and the most important part is the kernel is repeated all over the os created .
+
+this feature is added to kernel called c_groups is a way to define the limits of the resources , like I want a specific process to use 200MB memory.
+and the namespaces is a way to monitor the processes since the process has a view on the other processes the namespace limit the process view on the other ones  all these features + the file systems of any OS and compress it torball (Zip file) 
+ we can say that the conatiner is a process that we are a bit controlling by sizing the namespace and the c_groups 
+
+lxc and lxd are a tools to creat containers in the linux .
+
+
+now that we discovered how the containers works lets try to build our own container from scratch 
+
+1) the first thing we do is grab ourself an image we can use the rootfs (root filesystems) are read only files , and contains the minimal linux system files to boot which are the /bin and /lib and /sbin ... when you run the containers the runtime unpacks the the rootfs and mount it as the container's root directory  "/". using the command chroot you are focusing on the new root and then mount the proc (the proc filesystem is a virtual filesystem that provides information about processes ) filesystem 
+2) Why /proc Mounting is Important:
+
+Process Information: Without mounting /proc, processes inside the chroot wouldn't be able to access information about themselves (like process ID, memory usage, etc.). Tools like ps or top wouldn't function correctly.
+System Information: In some cases, applications might rely on information from /proc to understand the broader system environment (e.g., CPU type, available memory). Mounting /proc allows some level of access to this information. and then we can do the process level isolation so that the processes aren't shared among the host and the container.
+to fullfill that we us the command 
+```bash
+  unshare -p -f --mount-proc=$PWD/rootfs/proc
+```
+this is called namespaces
+then you can compare the process id that can you fetch and all that  using top and ps and ps aux
+and finally we can get into our namspace and restrict the limit of the memory and the cpu usage using the cgroups option.
+
+
