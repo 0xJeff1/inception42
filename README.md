@@ -82,3 +82,9 @@ so to build a container in linux you will need 3 essential thing
 .
 .
 
+new chapter in the docker :
+
+   the VMs is building a virtual machine that is simular to a real device which contain Vhardware and an opearting system and the dependencies and finaly the app that we want to install the point is what if we can fetch the dependencies and the app and work with it in an isolated way that would be better .
+lets define what is the OS the os contains  actually two parts which are the kernel mode and the user mode  the first thing that happened when you run an os is that it starts recognising the hardware ...
+
+I dont actually need the usermode  I only need the kernel mode 
