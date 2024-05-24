@@ -88,3 +88,6 @@ new chapter in the docker :
 lets define what is the OS the os contains  actually two parts which are the kernel mode and the user mode  the first thing that happened when you run an os is that it starts recognising the hardware ...
 
 I dont actually need the usermode  I only need the kernel mode 
+
+
+
