@@ -71,3 +71,6 @@ the trouble why I would use container is the OS what if I could just seperate th
 ok lets find out what is that OS the os is divided in two parts kernel mode and the user mode (a liitle os specification) 
 so the the kernel is already exist on the original operating system so why i wouldnt use it , if i did so then i know that i ran the half way 
 as we know that the kernel is one in all the linux distribution and all the usermode that are added is what specify what kind of linux distribution 
+
+the concept of the containers is already in the linux but in internal way , thats what we called the name space and the cgroups (that is able to control the resources for several process) 
+and the name spaces is to monitore the process bumble it so it can be viewed to each other .
