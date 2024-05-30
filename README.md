@@ -73,7 +73,7 @@ so the the kernel is already exist on the original operating system so why i wou
 as we know that the kernel is one in all the linux distribution and all the usermode that are added is what specify what kind of linux distribution 
 
 the concept of the containers is already in the linux but in internal way , thats what we called the name space and the cgroups (that is able to control the resources for several process) 
-and the name spaces is to monitore the process bumble it so it can be viewed to each other .
+and the name spaces is to monitore the process bumble it so it can be viewed to each other.
 
 what is the purpose of the container ???
  the purpose of the container is to run a single process,if not the whole container become useless.
