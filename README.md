@@ -79,3 +79,4 @@ what is the purpose of the container ???
  the purpose of the container is to run a single process,if not the whole container become useless.
  
 #### docker engine architecture 
+there is that docker daemon that play the role of connecting between the kernel and the container  
