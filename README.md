@@ -65,3 +65,9 @@ Tools like LXC and LXD are used to create containers in Linux. To build a contai
 3. Utilize namespaces to restrict process views and cgroups to limit memory and CPU usage.
 
 In summary, building a container in Linux requires three essential components: namespaces, chroot, and cgroups.
+
+
+the trouble why I would use container is the OS what if I could just seperate the APP and its dependencies that would be much better 
+ok lets find out what is that OS the os is divided in two parts kernel mode and the user mode (a liitle os specification) 
+so the the kernel is already exist on the original operating system so why i wouldnt use it , if i did so then i know that i ran the half way 
+as we know that the kernel is one in all the linux distribution and all the usermode that are added is what specify what kind of linux distribution 
