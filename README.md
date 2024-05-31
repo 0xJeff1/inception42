@@ -83,3 +83,17 @@ there is that docker daemon that play the role of connecting between the kernel 
 
 ##### how the docker works
  containerd is available as a daemon for linux and windows it manage the container lifecycle of its host system from image transfer and storage to container and supervision to low-level storage to network attachments and beyond.
+The Docker daemon (dockerd) is primarily responsible for managing Docker containers on the host system. Its main tasks include:
+
+    Container Management: Creating, starting, stopping, and removing Docker containers.
+    Image Management: Pulling, pushing, building, and managing Docker images.
+    Networking: Configuring network interfaces and managing network settings for Docker containers.
+    Storage: Managing storage volumes and container data.
+    Security: Enforcing security policies such as access control and isolation between containers.
+    Resource Management: Allocating system resources such as CPU, memory, and disk space to containers.
+    Logging and Monitoring: Collecting and managing container logs, as well as providing monitoring data.
+    Interfacing with container runtime: Communicating with the container runtime (such as containerd) to execute container operations.
+
+The child processes you see in the pstree output represent various tasks or threads within the Docker daemon (dockerd) process. Each of these tasks is responsible for handling specific aspects of Docker's functionality, such as container lifecycle management, image handling, networking, and more.
+
+In summary, the Docker daemon (dockerd) is the central component of Docker that manages the entire container lifecycle, from image management to container execution, providing an interface for users and other components to interact with Docker containers.
