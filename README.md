@@ -97,3 +97,7 @@ The Docker daemon (dockerd) is primarily responsible for managing Docker contain
 The child processes you see in the pstree output represent various tasks or threads within the Docker daemon (dockerd) process. Each of these tasks is responsible for handling specific aspects of Docker's functionality, such as container lifecycle management, image handling, networking, and more.
 
 In summary, the Docker daemon (dockerd) is the central component of Docker that manages the entire container lifecycle, from image management to container execution, providing an interface for users and other components to interact with Docker containers.
+
+
+sudo strace -f -p $(pidof containerd) -o strace_log for traces 
+sed -n '5356,21818p' strace_log > newstrace.txt
