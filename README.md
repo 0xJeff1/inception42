@@ -80,3 +80,6 @@ what is the purpose of the container ???
  
 #### docker engine architecture 
 there is that docker daemon that play the role of connecting between the kernel and the container  
+
+##### how the docker works
+ containerd is available as a daemon for linux and windows it manage the container lifecycle of its host system from image transfer and storage to container and supervision to low-level storage to network attachments and beyond.
