@@ -102,4 +102,5 @@ In summary, the Docker daemon (dockerd) is the central component of Docker that 
 sudo strace -f -p $(pidof containerd) -o strace_log for traces 
 
 sed -n '5356,21818p' strace_log > newstrace.txt
+
 cd /var/lib/docker for the presistent and non-presistent storage path
