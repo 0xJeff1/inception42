@@ -42,6 +42,9 @@ Run a test using Docker:
 docker run -it ubuntu
 ```
 
+
+
+
 Developers often face issues with dependencies when deploying programs across different devices. Docker provides a solution by packaging applications and their dependencies into isolated containers.
 
 ### Understanding Containers and Containerization
