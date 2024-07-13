@@ -51,6 +51,9 @@ Developers often face issues with dependencies when deploying programs across di
 
 ![Containers_vs_VM](https://github.com/jeftani/inception42/assets/78095454/bfc10c85-9322-40a8-a571-598ecbbb3f0b)
 
+what is docker?????
+ Docker is an open source platform that enables developers to build, deploy, run, update and manage containerized applications.
+
 Every program has specific dependencies necessary for proper functioning. For instance, a C++ program might require certain libraries and a compiler. Additionally, there could be dependencies requiring other dependencies, forming a dependency tree. Traditional solutions like virtual machines (VMs) were developed to address this issue.
 
 A hypervisor, software that runs multiple virtual machines on a single physical machine, manages VMs. However, this method often wastes resources due to fixed memory allocations.
