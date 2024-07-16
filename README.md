@@ -71,7 +71,7 @@ docker ps -aq    : list the ids of the containers
 docker images : list the images 
 docker stop <id> : stops the container 
 docker rm (for container) and rmi (for images) <id> : removes.
- awk ' NR>1 {print $3}' : list the images .
+ -q : list the images ides .
  curl <website>: fetch the html.
  docker info : shows the info about the docker .
  docker image pull <name of the image> : pulling the image.
@@ -128,6 +128,13 @@ this command is able to give a log of a container through its id
 the -f stands for follow so the strace follow the child processes 
 and the -p is the processes you want to trace .
 and it will give you a file contain all the traces 
-
-
+you gonna look for the runc which will execute the containerd_shim then the magical word "unshare" which is the one that isolate the files of the container .
+after that there is the clone() which make a copy of the first process and give it the id 1 then two ...
+in another universe you can check the namespaces and the processes related in the file proc
+another info is that the docker daemon is listening in HTTP so its not secure so you can work with TLS self signed or other .
+###### network in containers 
+  what is the main purpose of the containers is to run your application but how we can do that how we can create and move our programs to the container 
+  there is the command " cp " like in the linux and its syntax is " docker container cp [source file] [container name / ID ]: /path_where_to_execute. this solving a problem of the transportation but the problem when you edit that file you have to execute it and move it again so its a permenent solution in order to solve that you have to use the network use the -p 80:80 as a port to run it . 
+when you create any container it comes with its own network stack  
+  and every container comes with three type of networking Bridge and host and the none this last when you attach any container with it it becomes isolated and can not connect to any network and the bridge is the default network of any container 
   
