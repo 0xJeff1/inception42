@@ -1,2 +1,2 @@
-
-hello
+in the begining the developers were strugglingwhen they want to run an application on multi devices each one with its specific dependencies and its specific OS
+so in order to solve that problem the VMs comes to the point and suggest using an addition layer called the hypervisor to manage multiple OS in a single device
