@@ -55,6 +55,8 @@ but also the VMs has its own disadvantages if you can say , one of them is the n
 if we can seperate those and fetch the dependencies and the the app then we reached the halfway , lets bring the OS to the table and check its ingridients it contains two parts the kernel mode and the user mode , the usermode  its where the application being run and they have a little access to the resources ex the browsers the text editors ... and the kernel mode this mode has a unlimited access to the resources it manage and have a complete manipulation to the hardware.
 ok now we can obviously see that to run an application we wont need the usermode that comes with the OS we can say that its a unnecessary part what we actually need is the kernel part , and the kernel part is already available in the Host OS if we can use it then we reached the halfway , lets keep in mind that the kernel of the linux is one beside its version differences it stay the same what makes it like ubuntu and fedora ... is the little specifications added by usermode so lets make a package that contains those little specifications and the dependencies and the app and make it run on the Host kernel , after packaging the whole layer we called it Image to make the terms clear a running version of the image we call it container. what i forgot to mention is that the concept of containers is not new since it is used internally in the linux in the form of Cgroups and the Namespaces Cgroups which monitor the resources of a specific process and the Namespaces are about monitoring the hierarchy of processes and the accessibility through the processes wa do isolate all the processes using namespaces so anything outside is not visible to them so using the kernel which is available in every OS and using the tech inside of it which are Cgroups and the Namespaces will definitely helps to run the containers 
 
+one more thing is an example of visibility if we run a command in the container and we do the ps -ax it will show that the first process named pid 1 and it is isolated from the host but from the host the process is obviously appeared on the ps -ax we can notice that its not like VMs and that containers share stuff with the host .
+
 #### building a container manually
   
 
@@ -81,4 +83,51 @@ the job of the container is to run one single process and when you exit() the wh
 
 #### what is a container ??
   Containers allow devs to package everything required to run an app—the code, runtimes, and system tools—into one convenient location. 
+##### the docker architecture 
+![1 2O2XM1Q_LhOWCDEhXScf8w](https://github.com/user-attachments/assets/8c7e2afc-b1f8-44fe-813d-0f72af654500)
+when we talk about the docker architecture there is three fundamental parts which are docker daemon and the containerD and the runc 
+we talk about each one unit starting with the 
+
+lets begin with the " pstree -p " this command that will show us the processes that build the architecture of the docker 
+
+systemd(1)─┬─ModemManager(601)─┬─{ModemManager}(615)
+           │                   ├─{ModemManager}(616)
+           │                   └─{ModemManager}(618)
+           ├─containerd(645)─┬─{containerd}(663)
+           │                 ├─{containerd}(664)
+           │                 ├─{containerd}(665)
+           │                 ├─{containerd}(666)
+           │                 ├─{containerd}(668)
+           │                 └─{containerd}(670)
+           ├─containerd-shim(128222)─┬─bash(128240)
+           │                         ├─{containerd-shim}(128223)
+           │                         ├─{containerd-shim}(128224)
+           │                         ├─{containerd-shim}(128225)
+           ├─cron(554)
+           ├─dockerd(669)─┬─{dockerd}(671)
+           │              ├─{dockerd}(672)
+           │              ├─{dockerd}(673)
+           │              ├─{dockerd}(680)
+           │              ├─{dockerd}(688)
+           │              ├─{dockerd}(689)
+           │              ├─{dockerd}(710)
+           │              ├─{dockerd}(99619)
+           │              └─{dockerd}(125896)
+
+
+--> docker daemon : is the server side of the docker engine and its the part that receive the commands and talks to the kernel
+and when you run a command the docker daemon takes it and run the containerD which role is to manage the containers this conatinerD uses these leighweight processes that again run the container with the runc which is running the container with specific specification .
+
+this is the output of the command lets check for the docker daemon and the containerD 
+the containerD is a process that manage the lifecycle of the whole container from image to the host to the low level things 
+and here is the open source link of it https://github.com/containerd/containerd if u check the repo and goes to the   runtime requirment 
+you will find that most interaction with the linux conatiner are handled by the "runc" 
+and to figure out how these containers works lets trace a container 
+      " sudo strace -f -p 'pidof containerd' -o strace_log "
+this command is able to give a log of a container through its id 
+the -f stands for follow so the strace follow the child processes 
+and the -p is the processes you want to trace .
+and it will give you a file contain all the traces 
+
+
   
