@@ -137,4 +137,11 @@ another info is that the docker daemon is listening in HTTP so its not secure so
   there is the command " cp " like in the linux and its syntax is " docker container cp [source file] [container name / ID ]: /path_where_to_execute. this solving a problem of the transportation but the problem when you edit that file you have to execute it and move it again so its a permenent solution in order to solve that you have to use the network use the -p 80:80 as a port to run it . 
 when you create any container it comes with its own network stack  
   and every container comes with three type of networking Bridge and host and the none this last when you attach any container with it it becomes isolated and can not connect to any network and the bridge is the default network of any container 
+
+###### the storage 
+  the storage in container is different from the regular since when you end the container all the added stuff will be removed and no longer in the container 
+  and you can do it by yourself creat a folder then endl the conytainer it will end immediately after ending it 
+  so the solution that pops on the top is to mount that means is to creat an isolated folder and refer to it inside the container using the -v
+  "docker container run -it -v /path/to/thefile:new/file"
+  then this conatainer will have a live view to the folder .
   
