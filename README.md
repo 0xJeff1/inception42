@@ -145,5 +145,7 @@ when you create any container it comes with its own network stack
   "docker container run -it -v /path/to/thefile:new/file"
   then this conatainer will have a live view to the folder .
   DOCKER volume is the second solution which is better and more efficient 
+  the docker volumes which are in the same path /var/lib/volumes.
   
+  "docker volume create <any name>"
   
