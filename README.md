@@ -144,4 +144,6 @@ when you create any container it comes with its own network stack
   so the solution that pops on the top is to mount that means is to creat an isolated folder and refer to it inside the container using the -v
   "docker container run -it -v /path/to/thefile:new/file"
   then this conatainer will have a live view to the folder .
+  DOCKER volume is the second solution which is better and more efficient 
+  
   
