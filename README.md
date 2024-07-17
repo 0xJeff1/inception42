@@ -148,4 +148,5 @@ when you create any container it comes with its own network stack
   the docker volumes which are in the same path /var/lib/volumes.
   
   "docker volume create <any name>"
-  
+####### Dockerfile
+  to automatize this you will need a file that has all this instruction and every time you called it it build the container auto , 
