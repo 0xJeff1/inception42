@@ -150,3 +150,10 @@ when you create any container it comes with its own network stack
   "docker volume create <any name>"
 ####### Dockerfile
   to automatize this you will need a file that has all this instruction and every time you called it it build the container auto , 
+####### network deep dive
+
+  the original in the container is the isolation , so no container is able to interact with the other one or connect wit it but when we open the terminal using the -it we already interact with the container host to container this is one of the shapes of interacting between host and the container and there is more .
+every container created is created with its network stack  like virtual machine 
+show the network ip link show / ip addr show / ifconfig inside the container. to chose the network --network
+
+
