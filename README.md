@@ -166,11 +166,21 @@ show the network ip link show / ip addr show / ifconfig inside the container. to
 
 
 php7.3-fpm
+
+
  docker system prune -a
+ 
  USE data-base;
+ 
  SELECT CURRENT_USER();
+ 
  SELECT User, Host FROM mysql.user;
+ 
 SHOW GRANTS FOR 'username'@'hostname';
+
 SELECT * FROM wp_comments;
+
 docker ps -q
+
 apt-get update && apt-get install procps
+
